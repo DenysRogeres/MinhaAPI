@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
+      "projectUniqueName": "C:\\dev\\MinhaAPI\\MinhaAPI.csproj",
       "projectName": "MinhaAPI",
-      "projectPath": "C:\\dev\\MinhaAPI\\MinhaAPI\\MinhaAPI.csproj",
+      "projectPath": "C:\\dev\\MinhaAPI\\MinhaAPI.csproj",
       "packagesPath": "C:\\Users\\denys\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\MinhaAPI\\MinhaAPI\\obj\\",
+      "outputPath": "C:\\dev\\MinhaAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\denys\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.105\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.106\\RuntimeIdentifierGraph.json"
       }
     }
   }
