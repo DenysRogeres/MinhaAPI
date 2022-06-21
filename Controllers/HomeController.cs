@@ -8,44 +8,47 @@ namespace MinhaAPI.Controllers
     public class HomeController : ControllerBase
     {
        [HttpGet("/")]
-       public List<Todo> Get([FromServices] AppDbContext context)
+       public IActionResult Get([FromServices] AppDbContext context)
         {
-            return context.Todos.ToList();
+            return Ok(context.Todos.ToList());
         }
 
 
         [HttpGet("/{id:int}")]
-        public Todo GetById(
+        public IActionResult GetById(
             [FromRoute] int id,
             [FromServices] AppDbContext context)
         {
             var todo = context.Todos.FirstOrDefault(x => x.Id == id);
 
-            return todo;
+            if(todo == null)
+                return NotFound();
+
+            return Ok(todo);
         }
 
 
         [HttpPost("/")]
-        public Todo Post(
+        public IActionResult Post(
             [FromBody] Todo todo, 
             [FromServices] AppDbContext context)
         {
             context.Todos.Add(todo);
             context.SaveChanges();
 
-            return todo;
+            return Created($"/{todo.Id}",todo);
         }
 
 
         [HttpPut("/{id:int}")]
-        public Todo Put(
+        public IActionResult Put(
             [FromRoute] int id,
             [FromBody] Todo todo,
             [FromServices] AppDbContext context)
         {
             var model = context.Todos.FirstOrDefault(x => x.Id == id);
             if (model == null)
-                return null;
+                return NotFound();
 
             model.Title = todo.Title;
             model.Done = todo.Done;
@@ -53,21 +56,24 @@ namespace MinhaAPI.Controllers
             context.Todos.Update(model);
             context.SaveChanges();
 
-            return model;
+            return Ok(model);
         }
 
 
         [HttpDelete("/{id:int}")]
-        public string Delete(
+        public IActionResult Delete(
             [FromRoute] int id,
             [FromServices] AppDbContext context)
         {
             var model = context.Todos.FirstOrDefault(x => x.Id == id);
 
+            if (model == null)
+                return NotFound();
+
             context.Todos.Remove(model);
             context.SaveChanges();
 
-            return "Removido com sucesso";
+            return Ok("Removido com sucesso");
         }
     }
 }
