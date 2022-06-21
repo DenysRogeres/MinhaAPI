@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MinhaAPI.Data;
+using MinhaAPI.Models;
 
 namespace MinhaAPI.Controllers
 {
@@ -6,9 +8,9 @@ namespace MinhaAPI.Controllers
     public class HomeController : ControllerBase
     {
        [HttpGet("/")]
-       public string Get()
+       public List<Todo> Get([FromServices] AppDbContext context)
         {
-            return "Hello World";
+            return context.Todos.ToList();
         }
     }
 }
