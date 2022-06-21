@@ -10,7 +10,7 @@ using MinhaAPI.Data;
 namespace MinhaAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220620151341_CreateDatabase")]
+    [Migration("20220621031412_CreateDatabase")]
     partial class CreateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
